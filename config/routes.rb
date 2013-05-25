@@ -11,6 +11,8 @@ Morfeo::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
 
+  match '/phrase/random', :to => 'phrases#random_phrase'
+
   get '/logout', :to => 'sessions#destroy'
 
   resources :phrases

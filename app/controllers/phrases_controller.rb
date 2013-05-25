@@ -1,4 +1,7 @@
 class PhrasesController < ApplicationController
+
+  respond_to :json
+
   # GET /phrases
   # GET /phrases.json
   def index
@@ -8,6 +11,11 @@ class PhrasesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @phrases }
     end
+  end
+
+  def random_phrase
+    @phrase = Phrase.order("RANDOM()").first
+    respond_with @phrase
   end
 
   # GET /phrases/1
