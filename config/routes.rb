@@ -1,4 +1,6 @@
 Morfeo::Application.routes.draw do
+  resources :phrases
+
   resources :tags
 
   resources :posts
