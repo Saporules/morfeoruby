@@ -19,7 +19,23 @@
     <%= f.label :ip %><br />
     <%= f.text_field :ip %>
   </div>
+  <div class="field">
+    <%= f.label :publico %>
+    <%= f.select :publico, options_for_select([["Select One", ""], "0", "1"]), :class => 'genForm_dropBox' %>
+
+  </div> 
+  <div class="field">
+    <%= f.label :privado %>
+    <%= f.select :privado, options_for_select([["Select One", ""], "0", "1"]), :class => 'genForm_dropBox' %>
+
+  </div> 
+  <div class="field">
+    <%= f.label :anonimo %>
+    <%= f.select :anonimo, options_for_select([["Select One", ""], "0", "1"]), :class => 'genForm_dropBox' %>
+
+  </div> 
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
