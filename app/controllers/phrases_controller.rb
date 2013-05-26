@@ -1,4 +1,7 @@
 class PhrasesController < ApplicationController
+
+  respond_to :json
+
   # GET /phrases
   # GET /phrases.json
   def index
