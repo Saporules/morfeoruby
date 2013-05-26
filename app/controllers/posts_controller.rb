@@ -42,6 +42,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
 
+    if params['tag_field'] != nil
+      @post.tags = []
+      tags_array = params['tag_field'].split(",")
+      tags_array.each do |tag|
+        @post.tags << Tag.find_or_create_by_etiqueta_and_post_id(tag.strip, @post.id)
+      end
+    end
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
