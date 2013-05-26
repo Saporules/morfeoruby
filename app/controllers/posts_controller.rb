@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  respond_to :json
+
   # GET /posts
   # GET /posts.json
   def index
@@ -6,7 +9,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @posts }
+      format.json { render json: @posts, :include => :tags  }
     end
   end
 
@@ -89,7 +92,21 @@ class PostsController < ApplicationController
   end
 
   def get_by_user
-    @post = Post.find_by_ip(:user)
-    respond_with @post 
-  end 
+    @post = Post.find_all_by_ip(params[:user])
+    respond_to do |format|
+      format.json { render :json => @post }
+    end
+  end
+  def search
+    @tag = Tag.where(:etiqueta => params[:tag])
+    respond_to do |format|
+      format.json { render :json => @tag, :include => :post  }
+    end
+  end
+  def related
+    @tags = Post.find_all_by_ip(param[:user])
+    respond_to do |format|
+      format.json { render :json => @post, :include => :post  }
+    end
+  end
 end
