@@ -11,7 +11,7 @@ Morfeo::Application.routes.draw do
 
   match '/phrase/random', :to => 'phrases#random_phrase'
 
-  root :to => "home#index"
+  root :to => "posts#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
