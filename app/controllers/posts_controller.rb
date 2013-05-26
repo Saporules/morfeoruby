@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.scoped
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,7 +43,6 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if params['tag_field'] != nil
-      @post.tags = []
       tags_array = params['tag_field'].split(",")
       tags_array.each do |tag|
         @post.tags << Tag.find_or_create_by_etiqueta_and_post_id(tag.strip, @post.id)

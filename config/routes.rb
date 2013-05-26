@@ -9,6 +9,8 @@ Morfeo::Application.routes.draw do
 
   resources :posts
 
+  match '/user/:id', :to => 'user#users_json_array'
+
   match '/phrase/random', :to => 'phrases#random_phrase'
 
   root :to => "posts#index"
