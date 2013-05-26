@@ -1,10 +1,16 @@
 Morfeo::Application.routes.draw do
+  devise_for :users
+
   resources :phrases
 
   resources :tags
 
   resources :posts
 
+  match '/phrase/random', :to => 'phrases#random_phrase'
+
+  root :to => "home#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -3,9 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.text :contenido
       t.string :ip
-      t.boolean :publico
-      t.boolean :privado
-      t.boolean	:anonimo
+      t.integer :privacidad
 
       t.timestamps
     end

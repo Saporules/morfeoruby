@@ -9,6 +9,11 @@ class PhrasesController < ApplicationController
       format.json { render json: @phrases }
     end
   end
+  
+  def random_phrase
+    @phrase = Phrase.order("RANDOM()").first
+    respond_with @phrase
+  end
 
   # GET /phrases/1
   # GET /phrases/1.json

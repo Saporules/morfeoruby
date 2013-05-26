@@ -14,8 +14,7 @@ group :production do
 	gem "pg"
 end
 
-gem "omniauth"
-gem "omniauth-twitter"
+gem "devise"
 
 # Gems used only for assets and not required
 # in production environments by default.
