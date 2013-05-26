@@ -87,4 +87,11 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_by_user
+    @post = Post.where("ip = " + params["usuario"])
+    respond_to do |format|
+      format.json { render json: @posts }
+    end
+  end 
 end
