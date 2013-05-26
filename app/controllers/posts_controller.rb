@@ -89,7 +89,7 @@ class PostsController < ApplicationController
   end
 
   def get_by_user
-    @post = Post.find_by_ip[:usuario]
+    @post = Post.find_by_ip(:usuario)
     respond_with @post 
   end 
 end
