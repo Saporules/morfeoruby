@@ -11,7 +11,7 @@ Morfeo::Application.routes.draw do
 
   match '/phrase/random', :to => 'phrases#random_phrase'
 
-  match '/posts/:user', :to => 'posts#get_by_user'
+  match '/posts/user/:user', :to => 'posts#get_by_user'
 
   root :to => "posts#index"
   
