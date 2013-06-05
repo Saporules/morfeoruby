@@ -16,6 +16,8 @@ Morfeo::Application.routes.draw do
   match '/posts/:tag/tag', :to => 'posts#search'
 
   root :to => "posts#index"
+
+  devise_for :users, :controllers => {sessions: 'sessions'}
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
